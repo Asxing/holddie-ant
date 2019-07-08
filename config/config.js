@@ -30,11 +30,11 @@ const plugins = [
       },
       pwa: pwa
         ? {
-          workboxPluginMode: 'InjectManifest',
-          workboxOptions: {
-            importWorkboxFrom: 'local',
-          },
-        }
+            workboxPluginMode: 'InjectManifest',
+            workboxOptions: {
+              importWorkboxFrom: 'local',
+            },
+          }
         : false,
       dll: {
         include: ['dva', 'dva/router', 'dva/saga', 'dva/fetch'],
@@ -88,9 +88,6 @@ export default {
           path: '/user/login',
           component: './User/Login',
         },
-        {
-          component: '404',
-        },
       ],
     },
     {
@@ -100,14 +97,14 @@ export default {
       routes: [
         {
           path: '/',
+          redirect: '/wel/welcome1',
+          authority: ['admin', 'user'],
+        },
+        {
+          path: '/wel',
           name: 'wel',
           icon: 'smile',
           routes: [
-            {
-              path: '/',
-              name: 'welcome',
-              component: './Welcome',
-            },
             {
               path: '/wel/welcome1',
               name: 'welcome1',
@@ -133,17 +130,58 @@ export default {
             },
           ],
         },
-
         {
-          component: './404',
+          path: '/system',
+          name: 'system',
+          icon: 'smile',
+          routes: [
+            {
+              path: '/system/menu',
+              name: 'menu',
+              authority: ['user', 'admin'],
+              component: './System/Menu',
+            },
+            {
+              name: 'permission',
+              path: '/system/permission',
+              component: './System/Permission',
+            },
+          ],
         },
         {
-
-        }
+          name: 'exception',
+          icon: 'warning',
+          path: '/exception',
+          hideInMenu: true,
+          routes: [
+            // exception
+            {
+              path: '/exception/403',
+              name: 'not-permission',
+              hideInMenu: true,
+              component: './Exception/403',
+            },
+            {
+              path: '/exception/404',
+              name: 'not-find',
+              hideInMenu: true,
+              component: './Exception/404',
+            },
+            {
+              path: '/exception/500',
+              name: 'server-error',
+              hideInMenu: true,
+              component: './Exception/500',
+            },
+            {
+              path: '/exception/trigger',
+              name: 'trigger',
+              hideInMenu: true,
+              component: './Exception/TriggerException',
+            },
+          ],
+        },
       ],
-    },
-    {
-      component: './404',
     },
   ],
   // Theme for antd: https://ant.design/docs/react/customize-theme-cn

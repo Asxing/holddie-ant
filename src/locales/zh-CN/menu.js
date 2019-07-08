@@ -49,8 +49,11 @@ export default {
   'menu.editor.koni': '拓扑编辑器',
   'menu.wel': 'wel',
   'menu.wel.welcome': 'welcome',
-  'menu.wel.welcome1': "welcome1",
+  'menu.wel.welcome1': 'welcome1',
   'menu.wel.welcome2': 'welcome2',
   'menu.wel.center': '用户中心',
-  'menu.wel.settings': '用户设置'
+  'menu.wel.settings': '用户设置',
+  'menu.system': '系统管理',
+  'menu.system.menu': '菜单管理',
+  'menu.system.permission': '权限管理',
 };
